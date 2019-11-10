@@ -1,6 +1,6 @@
 #!/bin/bash
 
-racket Test.rkt 
+raco test Test.rkt 
 
 if [ $? -eq 0 ]
 then
