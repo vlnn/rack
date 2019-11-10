@@ -1,10 +1,18 @@
+name: tdd
+
+on: [push]
+
 jobs:
   build:
+
     runs-on: ubuntu-16.04
+
     strategy:
       matrix:
         racket-version: [ '7.3', '7.4' ]
+
     name: Racket ${{ matrix.racket-version }} sample
+
     steps:
       - uses: actions/checkout@master
       - name: Setup Racket
@@ -12,4 +20,4 @@ jobs:
         with:
           architecture: x64
           version: ${{ matrix.racket-version }}
-      - run: racket Test.rkt
+      - run: bash run-tests.sh
